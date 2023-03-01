@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 //import 'package:wallpaper_app/views/searchpage.dart';
 import 'package:wallpaper_app_ii/modules/searchpage/search_view.dart';
+import 'package:wallpaper_app_ii/modules/searchpage/search_vm.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final searchcontroller = TextEditingController();
+    //final searchcontroller = TextEditingController();
+    TextEditingController searchcontroller = new TextEditingController();
     //searchcontroller.text = 'Search';
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 30),
@@ -26,7 +28,7 @@ class SearchBar extends StatelessWidget {
           ),
           InkWell(
               onTap: () {
-                Get.to(() => SearchPage(query: "car"));
+                Get.to(() => SearchPage(query: searchcontroller.text));
               },
               child: Container(child: Icon(Icons.search))),
         ],

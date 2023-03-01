@@ -7,12 +7,23 @@ import 'package:wallpaper_app_ii/modules/detailpage/detailpage.dart';
 import 'package:wallpaper_app_ii/modules/homepage/homepage_vm.dart';
 import 'package:wallpaper_app_ii/modules/homepage/model/photomodel.dart';
 import 'package:wallpaper_app_ii/widgets/appBar.dart';
+import 'package:wallpaper_app_ii/widgets/categoryBar.dart';
 import 'package:wallpaper_app_ii/widgets/searchBar.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   @override
+  // List catlist = [
+  //   "streetart",
+  //   "wildlife",
+  //   "nature",
+  //   "city",
+  //   "cars",
+  //   "bikes",
+  //   "rail",
+  //   "japan"
+  // ];
   Widget build(BuildContext context) {
     return GetBuilder<HomePageVM>(builder: (c) {
       return Scaffold(
@@ -23,20 +34,20 @@ class HomePage extends StatelessWidget {
         body: SingleChildScrollView(
             child: Column(
           children: [
-            Container(padding: EdgeInsets.symmetric(horizontal: 10), child: SearchBar()),
-            // Container(
-            //   margin: EdgeInsets.symmetric(vertical: 20),
-            //   child: SizedBox(
-            //       height: 50,
-            //       width: MediaQuery.of(context).size.width,
-            //       // child: ListView.builder(
-            //       //   scrollDirection: Axis.horizontal,
-            //       //   itemCount: 2,
-            //       //   itemBuilder: (context, index) => Category(),
-            //       )),
-            // ),
+            Container(padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15), child: SearchBar()),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
+              margin: EdgeInsets.symmetric(vertical: 2),
+              child: SizedBox(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 8,
+                    itemBuilder: (context, index) => Categories(),
+                  )),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 13),
               height: 600,
               child: RefreshIndicator(
                 onRefresh: () async {

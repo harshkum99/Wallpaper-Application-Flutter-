@@ -31,7 +31,7 @@ class AppRoutes {
     GetPage(
         name: search,
         page: () => SearchPage(
-              query: null,
+              query: '',
             ),
         binding: DataBinding()),
   ];

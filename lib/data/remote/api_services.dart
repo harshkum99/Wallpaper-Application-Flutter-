@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:wallpaper_app_ii/data/remote/api_interface.dart';
@@ -41,8 +42,9 @@ class ApiService extends ApiInterface {
   }
 
   @override
-  Future? getSearchWallpapers() async {
-    final sresponse = await http.get(Uri.parse("https://api.unsplash.com/search/photos?page=1&query=car&client_id=vLg_xPb3nzDhGz57hy8X8YKXOHD5pvhA2cBjBX2OZ8s"));
+  Future? getSearchWallpapers(String query) async {
+    //debugPrint("Photos repo$query");
+    final sresponse = await http.get(Uri.parse("https://api.unsplash.com/search/photos?page=1&query=$query&client_id=vLg_xPb3nzDhGz57hy8X8YKXOHD5pvhA2cBjBX2OZ8s"));
     // ignore: avoid_print
     //print(sresponse.body);
     var jsonData = sresponse.body;

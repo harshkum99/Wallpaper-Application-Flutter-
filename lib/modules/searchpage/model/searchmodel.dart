@@ -22,7 +22,7 @@ class SearchModel {
   factory SearchModel.fromJson(Map<String, dynamic> json) => SearchModel(
         total: json["total"],
         totalPages: json["total_pages"],
-        results: json["results"] == null ? [] : List<Result>.from(json["results"]!.map((x) => Result.fromJson(x))),
+        results: json["results"] == null ? [] : List<Result>.from(json["results"]!.map((x) => Result.fromJson((x)))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -56,9 +56,9 @@ class Result {
   });
 
   String? id;
-  DateTime? createdAt;
-  DateTime? updatedAt;
-  DateTime? promotedAt;
+  String? createdAt;
+  String? updatedAt;
+  String? promotedAt;
   int? width;
   int? height;
   String? color;
@@ -77,9 +77,9 @@ class Result {
 
   factory Result.fromJson(Map<String, dynamic> json) => Result(
         id: json["id"],
-        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
-        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
-        promotedAt: json["promoted_at"] == null ? null : DateTime.parse(json["promoted_at"]),
+        createdAt: json["created_at"],
+        updatedAt: json["updated_at"],
+        promotedAt: json["promoted_at"],
         width: json["width"],
         height: json["height"],
         color: json["color"],
@@ -99,9 +99,9 @@ class Result {
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "promoted_at": promotedAt?.toIso8601String(),
+        "created_at": createdAt,
+        "updated_at": updatedAt,
+        "promoted_at": promotedAt,
         "width": width,
         "height": height,
         "color": color,
@@ -280,9 +280,9 @@ class CoverPhoto {
   });
 
   String? id;
-  DateTime? createdAt;
-  DateTime? updatedAt;
-  DateTime? promotedAt;
+  String? createdAt;
+  String? updatedAt;
+  String? promotedAt;
   int? width;
   int? height;
   String? color;
@@ -301,9 +301,9 @@ class CoverPhoto {
 
   factory CoverPhoto.fromJson(Map<String, dynamic> json) => CoverPhoto(
         id: json["id"],
-        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
-        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
-        promotedAt: json["promoted_at"] == null ? null : DateTime.parse(json["promoted_at"]),
+        createdAt: json["created_at"],
+        updatedAt: json["updated_at"],
+        promotedAt: json["promoted_at"],
         width: json["width"],
         height: json["height"],
         color: json["color"],
@@ -323,9 +323,9 @@ class CoverPhoto {
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "created_at": createdAt?.toIso8601String(),
-        "updated_at": updatedAt?.toIso8601String(),
-        "promoted_at": promotedAt?.toIso8601String(),
+        "created_at": createdAt,
+        "updated_at": updatedAt,
+        "promoted_at": promotedAt,
         "width": width,
         "height": height,
         "color": color,
@@ -383,16 +383,16 @@ class ArchitectureInterior {
   });
 
   String? status;
-  DateTime? approvedOn;
+  String? approvedOn;
 
   factory ArchitectureInterior.fromJson(Map<String, dynamic> json) => ArchitectureInterior(
         status: json["status"],
-        approvedOn: json["approved_on"] == null ? null : DateTime.parse(json["approved_on"]),
+        approvedOn: json["approved_on"],
       );
 
   Map<String, dynamic> toJson() => {
         "status": status,
-        "approved_on": approvedOn?.toIso8601String(),
+        "approved_on": approvedOn,
       };
 }
 
@@ -456,7 +456,7 @@ class User {
   });
 
   String? id;
-  DateTime? updatedAt;
+  String? updatedAt;
   String? username;
   String? name;
   String? firstName;
@@ -477,7 +477,7 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) => User(
         id: json["id"],
-        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
+        updatedAt: json["updated_at"],
         username: json["username"],
         name: json["name"],
         firstName: json["first_name"],
@@ -499,7 +499,7 @@ class User {
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "updated_at": updatedAt?.toIso8601String(),
+        "updated_at": updatedAt,
         "username": username,
         "name": name,
         "first_name": firstName,
